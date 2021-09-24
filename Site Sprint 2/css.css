@@ -1,0 +1,146 @@
+body{
+    height: 2100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    background-color:rgb(62, 22, 155);
+
+}
+
+header{
+    height: 350px;
+    background-image: url(img/htmll.jpeg);
+    text-align: center;
+}
+
+footer{
+    height: 350px;
+}
+
+main{
+    height: 1400px;
+}
+/*CSS DO HEADER*/
+header  .cent{
+    display: flex;
+    padding-top: 30px;
+    
+}
+
+header .cent nav{
+
+    margin: 0px 500px 0px 200px;
+    display: flex;
+    border-bottom: 1px solid #fff;
+    text-align: center;
+    justify-content: space-around;
+
+
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    padding:0px 20px;
+
+}
+
+.link:hover{
+    color: grey;
+    border-bottom: 1.5s 2px solid grey;
+}
+
+header .bt {
+    text-align: right;
+}
+.btn_cads{
+    color: white;
+    background-color: rgb(61, 27, 122);
+    border: none;
+    width: auto;
+    height: 40px;
+    border-radius: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.homee{
+    display: flex;
+    margin: 150px;
+    align-items: center;
+    padding: 0px 30px 0px 0px;
+    height: 200px;
+    margin-bottom: 10px;
+    
+}
+
+.artshop{
+    width: 400px;
+    height: 400px;
+}
+
+.div_shop{
+    color: rgb(62, 22, 155);
+    background-color: rgb(255, 255, 255);
+    width: 300px;
+    height: 200px;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 1px 1px 3px black;
+    margin:-100px 0px 0px 0px  ;
+    padding: 10px 10px 10px 10px;
+    
+}
+
+.div_shop h2{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+ .sobre{
+     background-color: rgb(62, 22, 155);
+     height: 50vh;
+     display: flex;
+     padding: 10px 10px 10px 10px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     color: white;
+     font-weight: bold;
+     font-size: 20px;
+
+ }
+
+ .div_texto{
+  width: 600px;
+ }
+
+
+
+ .sec_sobre{
+  margin: 100px 100px 100px 100px;
+ }
+
+.img_sobre {
+    width: 200px;
+    height: 200px;
+}
+
+.missao {
+    display: flex;
+}
+
+.missao div h3{
+    border-bottom: 1px solid rgb(173, 43, 43);
+    margin: 0px 0px 20px 0px;
+}
+
+.missao div{
+    width: 300px;
+    height: 300px;
+    border:1px solid black;
+    padding: 30px 0px 0px 0px;
+    margin-left: 100px;
+}
+
+ 
+
+footer{
+    background-color: gray;
+}
