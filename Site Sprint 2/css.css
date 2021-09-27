@@ -13,7 +13,7 @@ header{
 }
 
 footer{
-    height: 350px;
+    height: 200px;
 }
 
 main{
@@ -66,7 +66,7 @@ header .bt {
     margin: 150px;
     align-items: center;
     padding: 0px 30px 0px 0px;
-    height: 200px;
+    height: 150px;
     margin-bottom: 10px;
     
 }
@@ -104,6 +104,9 @@ header .bt {
      color: white;
      font-weight: bold;
      font-size: 20px;
+     align-items: center;
+     text-align: center;
+     margin-top: none;
 
  }
 
@@ -114,7 +117,8 @@ header .bt {
 
 
  .sec_sobre{
-  margin: 100px 100px 100px 100px;
+  margin: 0px 100px 0px 100px;
+  
  }
 
 .img_sobre {
@@ -127,20 +131,34 @@ header .bt {
 }
 
 .missao div h3{
-    border-bottom: 1px solid rgb(173, 43, 43);
+    border-bottom: 1px solid rgb(255, 255, 255);
     margin: 0px 0px 20px 0px;
 }
 
 .missao div{
     width: 300px;
     height: 300px;
-    border:1px solid black;
     padding: 30px 0px 0px 0px;
     margin-left: 100px;
+    color: white;
 }
 
- 
+ .nos {
+     background-color: rgb(62, 22, 155);
+     height: 300px;
+     display: flex;
+     text-align: center;
+ }
+.divnos{
+    background-color: rgb(62, 22, 155);
+    width: 20%;
+    height: 200px;
 
+}
+
+.divnos img{
+    height: 150px;
+}
 footer{
     background-color: gray;
 }
