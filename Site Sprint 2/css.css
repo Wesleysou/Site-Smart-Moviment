@@ -2,13 +2,13 @@ body{
     height: 2100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    background-color:rgb(62, 22, 155);
+    background-color:#ffffff;
 
 }
 
 header{
     height: 350px;
-    background-image: url(img/htmll.jpeg);
+    background-color: #284b63;
     text-align: center;
 }
 
@@ -30,7 +30,6 @@ header .cent nav{
 
     margin: 0px 500px 0px 200px;
     display: flex;
-    border-bottom: 1px solid #fff;
     text-align: center;
     justify-content: space-around;
 
@@ -41,6 +40,7 @@ header .cent nav{
     color: white;
     text-decoration: none;
     padding:0px 20px;
+    transition: color 1s;
 
 }
 
@@ -54,12 +54,17 @@ header .bt {
 }
 .btn_cads{
     color: white;
-    background-color: rgb(61, 27, 122);
+    background-color: #353535;
     border: none;
-    width: auto;
     height: 40px;
     border-radius: 20px;
+    transition: background 1s;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn_cads:hover,
+.btn_cads:focus{
+ background: #d9d9d9;
 }
 .homee{
     display: flex;
@@ -77,8 +82,8 @@ header .bt {
 }
 
 .div_shop{
-    color: rgb(62, 22, 155);
-    background-color: rgb(255, 255, 255);
+    color: #023e8a;
+    background-color: #d9d9d9;
     width: 300px;
     height: 200px;
     font-size: 20px;
@@ -96,17 +101,19 @@ header .bt {
 }
 
  .sobre{
-     background-color: rgb(62, 22, 155);
+     background-color: #fff;
      height: 50vh;
      display: flex;
      padding: 10px 10px 10px 10px;
      font-family: Verdana, Geneva, Tahoma, sans-serif;
-     color: white;
+     color: #3c6e71;
      font-weight: bold;
      font-size: 20px;
      align-items: center;
      text-align: center;
-     margin-top: none;
+     width: 100vw;
+     margin-left: 150px;
+    
 
  }
 
@@ -128,11 +135,13 @@ header .bt {
 
 .missao {
     display: flex;
+    margin-left: 100px;
 }
 
 .missao div h3{
     border-bottom: 1px solid rgb(255, 255, 255);
     margin: 0px 0px 20px 0px;
+    align-items: center;
 }
 
 .missao div{
@@ -140,19 +149,29 @@ header .bt {
     height: 300px;
     padding: 30px 0px 0px 0px;
     margin-left: 100px;
-    color: white;
+    color: #3c6e71;
+    font-size: 20px;
+    margin-right: none;
+    text-align: center;
+    background-color: #d9d9d9;
+    margin-bottom: 100px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px black;
 }
 
  .nos {
-     background-color: rgb(62, 22, 155);
+
+     background-color: #fff;
      height: 300px;
      display: flex;
      text-align: center;
  }
 .divnos{
-    background-color: rgb(62, 22, 155);
+    background-color: #fff;
     width: 20%;
     height: 200px;
+    color: #3c6e71;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
 }
 
@@ -160,5 +179,5 @@ header .bt {
     height: 150px;
 }
 footer{
-    background-color: gray;
+    background-color: #284b63;
 }
