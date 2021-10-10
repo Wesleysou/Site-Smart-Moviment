@@ -1,0 +1,726 @@
+
+<!--
+Calculadora
+Versão 1.5
+Donilo
+ -->
+
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Calculadora Financeira</title>
+ 
+ </head>
+ <body>
+ 
+     <div id="div_main">
+         <center>
+         <!---->
+         <h2>Calculadora Financeira</h2>
+         <h5>Faça sua simulação!</h5>
+ 
+         <div id="div_0">
+ 
+             <h5>Escolha um período para simular:</h5>
+             <button onclick="botao_dias_uteis()">Dias úteis</button>
+             <button onclick="botao_finais_de_semana()">Finais de Semana e Feriados</button>
+             <br><br><br><br>
+             <img id="img_logo" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/losmart-removebg-preview%20(1).png" alt="">
+             <br><br><br>
+             <footer>SmartMovement - Todos os direitos reservados ©</footer>
+ 
+ 
+         </div>
+         <!-- Aqui temos os inputs que vão pegar o valor estimado, e passar esses valores para o sesnor, que está programado pra gerar um número um pouco maior do valor estimado -->
+         <div id="div_1">
+ 
+             <h5>Preencha os campos abaixo para <br>realizarmos a sua cotação.</h5>
+             Setor a ser simulado: <input id="setor_a"> Quantidade estimada de pessoas: <input id="qt_estimada_a"><br>
+             Setor a ser simulado: <input id="setor_b"> Quantidade estimada de pessoas: <input id="qt_estimada_b"><br>
+             Setor a ser simulado: <input id="setor_c"> Quantidade estimada de pessoas: <input id="qt_estimada_c"><br>
+             <br>
+             <button onclick="simular()">Simular!</button>
+             
+         </div>
+        
+         <div id="div_2">
+ 
+             <h3>Resultado</h3>
+ 
+             <img id="interrogacao" onclick="ajuda()" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/interroga%C3%A7%C3%A3o-removebg-preview.png">
+             <br><br>
+ 
+             Simulação do <b><span id="span_setor_a">A</span></b>:<br>
+             <div id="barra_estimada_a"><span id="dados_estimado_a"></span></div>
+             <div id="barra_simulada_a"><span id="dados_simulado_a"></span></div>
+             <div id="barra_lucro_a"><span id="lucro_previsto_a"></span></div>
+             <!---->
+             Simulação do <b><span id="span_setor_b">B</span></b>:<br>
+             <div id="barra_estimada_b"><span id="dados_estimado_b"></span></div>
+             <div id="barra_simulada_b"><span id="dados_simulado_b"></span></div>
+             <div id="barra_lucro_b"><span id="lucro_previsto_b"></span></div>
+             <!---->
+             Simulação do <b><span id="span_setor_c">C</span></b>:<br>
+             <div id="barra_estimada_c"><span id="dados_estimado_c"></span></div>
+             <div id="barra_simulada_c"><span id="dados_simulado_c"></span></div>
+             <div id="barra_lucro_c"><span id="lucro_previsto_c"></span></div>
+             <br>
+ 
+             <center>
+                 <img id="novamente" onclick="novamente()" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/calcu-removebg-preview.png"><br>
+                 <span style="color: rgb(61, 9, 145);"><b>Simular novamente</b></span>
+             </center>
+ 
+         </div>
+  
+         </center>
+     </div>
+ 
+     
+ </body>
+ </html>
+ 
+ <script>
+ 
+     // aqui foram declaradas todas as variáveis que vão ser trabalhadas na função, todas com seus respectivos nomes p uma fácil organização -->
+ 
+     var num_estimado_a = 0;
+     var num_estimado_b = 0;
+     var num_estimado_c = 0;
+     var num_simulado_a = 0;
+     var num_simulado_b = 0;
+     var num_simulado_c = 0;
+     var diferença_a = 0;
+     var diferença_b = 0;
+     var diferença_c = 0;
+     var total_pessoas_estimadas = 0;
+     var total_pessoas_simuladas = 0;
+     var dia_a = 0;
+     var dia_b = 0;
+     var dia_c = 0;
+     var porcentagem_estimada_a = 0;
+     var porcentagem_estimada_b = 0;
+     var porcentagem_estimada_c = 0;
+     var porcentagem_simulada_a = 0;
+     var porcentagem_simulada_b = 0;
+     var porcentagem_simulada_c = 0;
+     var gasto_medio_pessoa = 243.82;
+     var media_porcentagem_compra = 0.45;
+     var lucro_medio_a = 0;
+     var lucro_medio_b = 0;
+     var lucro_medio_c = 0;
+ 
+     // aqui temos uma função que vai executar todas as outras funções já engatilhadas com seus cálculos -->
+ 
+     function simular(){
+ 
+         setPessoasEstimadas()
+         setPessoasSimuladas()
+         setSetores()
+         setPorcentagem()
+         setDados()
+         setBarras()
+         fixTamanhoBarras()
+         mostrar()
+         
+     }
+ 
+     // aqui se encontra a frequencia dos dias úteis, com uma frequência menor dos finais de semana -->
+ 
+     function botao_dias_uteis(){
+ 
+         div_0.style.display = "none";
+         div_1.style.display = "block";
+         dia_a = 1.1;
+         dia_b = 1.3;
+         dia_c = 1.4;
+ 
+     }
+ 
+     // aqui temos a frequência dos finais de semanas, como citado, maior que a frequência dos dias úteis -->
+ 
+     function botao_finais_de_semana(){
+ 
+         div_0.style.display = "none";
+         div_1.style.display = "block";
+         dia_a = 1.8;
+         dia_b = 1.5;
+         dia_c = 1.3;
+         
+ 
+     }
+ 
+     function mostrar(){
+ 
+         div_1.style.display = "none";
+         div_2.style.display = "block";
+ 
+     }
+ 
+     function setSetores(){
+ 
+         span_setor_a.innerHTML = `${setor_a.value}`;
+         span_setor_b.innerHTML = `${setor_b.value}`;
+         span_setor_c.innerHTML = `${setor_c.value}`;
+ 
+     }
+ 
+     function setPessoasEstimadas(){
+ 
+         num_estimado_a = `${Number(qt_estimada_a.value)}`
+         num_estimado_b = `${Number(qt_estimada_b.value)}`
+         num_estimado_c = `${Number(qt_estimada_c.value)}`
+         total_pessoas_estimadas = `${Number(num_estimado_a) + Number(num_estimado_b) + Number(num_estimado_c)}`
+ 
+     }
+ 
+     function setPessoasSimuladas(){
+ 
+         num_simulado_a = num_estimado_a * dia_a;
+         num_simulado_b = num_estimado_b * dia_b;
+         num_simulado_c = num_estimado_c * dia_c;
+         total_pessoas_simuladas = `${num_simulado_a + num_simulado_b + num_simulado_c}`;
+ 
+     }
+ 
+     // aqui programamos p o tamanho das div mudarem de acordo com os valores inseridos -->
+ 
+     function setBarras(){
+ 
+         //
+         barra_estimada_a.style.width = `${(porcentagem_estimada_a).toFixed(1)}%`
+         barra_estimada_b.style.width = `${(porcentagem_estimada_b).toFixed(1)}%`
+         barra_estimada_c.style.width = `${(porcentagem_estimada_c).toFixed(1)}%`
+         //
+         barra_simulada_a.style.width = `${(porcentagem_simulada_a).toFixed(1)}%`
+         barra_simulada_b.style.width = `${(porcentagem_simulada_b).toFixed(1)}%`
+         barra_simulada_c.style.width = `${(porcentagem_simulada_c).toFixed(1)}%`
+         //
+         barra_lucro_a.style.width = `${(porcentagem_simulada_a).toFixed(1)}%`
+         barra_lucro_b.style.width = `${(porcentagem_simulada_b).toFixed(1)}%`
+         barra_lucro_c.style.width = `${(porcentagem_simulada_c).toFixed(1)}%`
+ 
+     }
+ 
+     
+ 
+     function fixTamanhoBarras(){
+ 
+         if(barra_estimada_a.style.width < `${20}%`) {barra_estimada_a.style.width = `${20}%`;}
+         if(barra_estimada_b.style.width < `${20}%`) {barra_estimada_b.style.width = `${20}%`;}
+         if(barra_estimada_c.style.width < `${20}%`) {barra_estimada_c.style.width = `${20}%`;}
+         //
+         if(barra_simulada_a.style.width < `${20}%`) {barra_simulada_a.style.width = `${20}%`;}
+         if(barra_simulada_b.style.width < `${20}%`) {barra_simulada_b.style.width = `${20}%`;}
+         if(barra_simulada_c.style.width < `${20}%`) {barra_simulada_c.style.width = `${20}%`;}
+         //
+         if(barra_lucro_a.style.width < `${20}%`) {barra_lucro_a.style.width = `${20}%`;}
+         if(barra_lucro_b.style.width < `${20}%`) {barra_lucro_b.style.width = `${20}%`;}
+         if(barra_lucro_c.style.width < `${20}%`) {barra_lucro_c.style.width = `${20}%`;}
+         
+ 
+     }
+ 
+     // aqui nós calculamos a porcentagem de pessoas estimadas em relação ao total, e também mostramos os valores simulados pelo sensor e o lucro -->
+ 
+     function setDados(){
+ 
+         //
+         dados_estimado_a.innerHTML = `${num_estimado_a} pessoas estimadas (${(porcentagem_estimada_a).toFixed(2)}% do total)`
+         dados_estimado_b.innerHTML = `${num_estimado_b} pessoas estimadas (${(porcentagem_estimada_b).toFixed(2)}% do total)`
+         dados_estimado_c.innerHTML = `${num_estimado_c} pessoas estimadas (${(porcentagem_estimada_c).toFixed(2)}% do total)`
+         //
+         dados_simulado_a.innerHTML = `${num_simulado_a.toFixed(0)} pessoas (aumento de ${(diferença_a).toFixed(0)} pessoas do estimado)`
+         dados_simulado_b.innerHTML = `${num_simulado_b.toFixed(0)} pessoas (aumento de ${(diferença_b).toFixed(0)} pessoas do estimado)`
+         dados_simulado_c.innerHTML = `${num_simulado_c.toFixed(0)} pessoas (aumento de ${(diferença_c).toFixed(0)} pessoas do estimado)`
+         //
+         lucro_medio_a = ((diferença_a.toFixed(0)) * gasto_medio_pessoa);
+         lucro_medio_b = ((diferença_b.toFixed(0)) * gasto_medio_pessoa);
+         lucro_medio_c = ((diferença_c.toFixed(0)) * gasto_medio_pessoa);
+         //
+         lucro_previsto_a.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_a).toFixed(2)}`;
+         lucro_previsto_b.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_b).toFixed(2)}`;
+         lucro_previsto_c.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_c).toFixed(2)}`;
+     }
+ 
+     function setPorcentagem(){
+ 
+         porcentagem_estimada_a = (num_estimado_a / total_pessoas_estimadas) * 100;
+         porcentagem_estimada_b = (num_estimado_b / total_pessoas_estimadas) * 100;
+         porcentagem_estimada_c = (num_estimado_c / total_pessoas_estimadas) * 100;
+         //
+         porcentagem_simulada_a = (num_simulado_a / total_pessoas_estimadas) * 100;
+         porcentagem_simulada_b = (num_simulado_b / total_pessoas_estimadas) * 100;
+         porcentagem_simulada_c = (num_simulado_c / total_pessoas_estimadas) * 100;
+         //
+         diferença_a = num_simulado_a - num_estimado_a;
+         diferença_b = num_simulado_b - num_estimado_b;
+         diferença_c = num_simulado_c - num_estimado_c;
+ 
+ 
+     }
+     function novamente(){
+ 
+         div_0.style.display = "block";
+         div_2.style.display = "none";
+     }
+ 
+     function ajuda(){
+ 
+         alert(`Segundo levantamento da Abrasce (Associação Brasileira de Shopping Centers), de todas as pessoas que vão ao shopping, 45% vão com a real intenção de compra sendo o gasto médio por cliente (independente de idade ou classe social) é de R$ 243,82.`)
+ 
+     }
+ 
+ </script>
+ 
+ <style>
+ 
+ body{
+ 
+     background-image: url("https://i.pinimg.com/564x/83/f3/4b/83f34bc53988fdc890c60af22cc911b5.jpg");
+     background-image: no-repeat;
+     background-size: cover;
+ 
+ }
+ 
+ #img_logo{
+ 
+     height: 300px;
+     width: 300px;
+ 
+ }
+ 
+ #div_0{
+ 
+     display: block;
+ 
+ }
+ 
+ #div_1{
+ 
+     display: none;
+ 
+ }
+ #div_2{
+ 
+     display: none;
+ 
+ }
+ #barra_estimada_a, #barra_estimada_b, #barra_estimada_c {
+ 
+     background-color: grey;
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ 
+ #barra_simulada_a, #barra_simulada_b, #barra_simulada_c {
+ 
+     background-color:#370E94;
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ #barra_lucro_a, #barra_lucro_b, #barra_lucro_c {
+ 
+     background-color: rgb(175, 127, 4);
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ 
+ 
+ #dados_estimado_a, #dados_estimado_b, #dados_estimado_c, #dados_simulado_a, #dados_simulado_b, #dados_simulado_c, #lucro_previsto_a, #lucro_previsto_b, #lucro_previsto_c{
+ 
+     color: white;
+     font-style: bold;
+     font-size: 17px;
+     text-align: center;
+ 
+ }
+ 
+ #novamente{
+ 
+ 
+     height: 10%;
+     width: 10%;
+ 
+ }
+ #interrogacao{
+ 
+     height: 30px;
+     width: 30px;
+ 
+ =======
+ <!--
+ Calculadora
+ Versão 1.5
+ Donilo
+  -->
+ 
+ <!DOCTYPE html>
+ <html lang="pt-br">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Calculadora Financeira</title>
+ 
+ </head>
+ <body>
+ 
+     <div id="div_main">
+         <center>
+         <!---->
+         <h2>Calculadora Financeira</h2>
+         <h5>Faça sua simulação!</h5>
+ 
+         <div id="div_0">
+ 
+             <h5>Escolha um período para simular:</h5>
+             <button onclick="botao_dias_uteis()">Dias úteis</button>
+             <button onclick="botao_finais_de_semana()">Finais de Semana e Feriados</button>
+             <br><br><br><br>
+             <img id="img_logo" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/losmart-removebg-preview%20(1).png" alt="">
+             <br><br><br>
+             <footer>SmartMovement - Todos os direitos reservados ©</footer>
+ 
+ 
+         </div>
+         <!-- Aqui temos os inputs que vão pegar o valor estimado, e passar esses valores para o sesnor, que está programado pra gerar um número um pouco maior do valor estimado -->
+         <div id="div_1">
+ 
+             <h5>Preencha os campos abaixo para <br>realizarmos a sua cotação.</h5>
+             Setor a ser simulado: <input id="setor_a"> Quantidade estimada de pessoas: <input id="qt_estimada_a"><br>
+             Setor a ser simulado: <input id="setor_b"> Quantidade estimada de pessoas: <input id="qt_estimada_b"><br>
+             Setor a ser simulado: <input id="setor_c"> Quantidade estimada de pessoas: <input id="qt_estimada_c"><br>
+             <br>
+             <button onclick="simular()">Simular!</button>
+             
+         </div>
+        
+         <div id="div_2">
+ 
+             <h3>Resultado</h3>
+ 
+             <img id="interrogacao" onclick="ajuda()" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/interroga%C3%A7%C3%A3o-removebg-preview.png">
+             <br><br>
+ 
+             Simulação do <b><span id="span_setor_a">A</span></b>:<br>
+             <div id="barra_estimada_a"><span id="dados_estimado_a"></span></div>
+             <div id="barra_simulada_a"><span id="dados_simulado_a"></span></div>
+             <div id="barra_lucro_a"><span id="lucro_previsto_a"></span></div>
+             <!---->
+             Simulação do <b><span id="span_setor_b">B</span></b>:<br>
+             <div id="barra_estimada_b"><span id="dados_estimado_b"></span></div>
+             <div id="barra_simulada_b"><span id="dados_simulado_b"></span></div>
+             <div id="barra_lucro_b"><span id="lucro_previsto_b"></span></div>
+             <!---->
+             Simulação do <b><span id="span_setor_c">C</span></b>:<br>
+             <div id="barra_estimada_c"><span id="dados_estimado_c"></span></div>
+             <div id="barra_simulada_c"><span id="dados_simulado_c"></span></div>
+             <div id="barra_lucro_c"><span id="lucro_previsto_c"></span></div>
+             <br>
+ 
+             <center>
+                 <img id="novamente" onclick="novamente()" src="https://raw.githubusercontent.com/CindyKanashiro/ADS_PI_GITHUB/main/calcu-removebg-preview.png"><br>
+                 <span style="color: rgb(61, 9, 145);"><b>Simular novamente</b></span>
+             </center>
+ 
+         </div>
+  
+         </center>
+     </div>
+ 
+     
+ </body>
+ </html>
+ 
+ <script>
+ 
+     // aqui foram declaradas todas as variáveis que vão ser trabalhadas na função, todas com seus respectivos nomes p uma fácil organização -->
+ 
+     var num_estimado_a = 0;
+     var num_estimado_b = 0;
+     var num_estimado_c = 0;
+     var num_simulado_a = 0;
+     var num_simulado_b = 0;
+     var num_simulado_c = 0;
+     var diferença_a = 0;
+     var diferença_b = 0;
+     var diferença_c = 0;
+     var total_pessoas_estimadas = 0;
+     var total_pessoas_simuladas = 0;
+     var dia_a = 0;
+     var dia_b = 0;
+     var dia_c = 0;
+     var porcentagem_estimada_a = 0;
+     var porcentagem_estimada_b = 0;
+     var porcentagem_estimada_c = 0;
+     var porcentagem_simulada_a = 0;
+     var porcentagem_simulada_b = 0;
+     var porcentagem_simulada_c = 0;
+     var gasto_medio_pessoa = 243.82;
+     var media_porcentagem_compra = 0.45;
+     var lucro_medio_a = 0;
+     var lucro_medio_b = 0;
+     var lucro_medio_c = 0;
+ 
+     // aqui temos uma função que vai executar todas as outras funções já engatilhadas com seus cálculos -->
+ 
+     function simular(){
+ 
+         setPessoasEstimadas()
+         setPessoasSimuladas()
+         setSetores()
+         setPorcentagem()
+         setDados()
+         setBarras()
+         fixTamanhoBarras()
+         mostrar()
+         
+     }
+ 
+     // aqui se encontra a frequencia dos dias úteis, com uma frequência menor dos finais de semana -->
+ 
+     function botao_dias_uteis(){
+ 
+         div_0.style.display = "none";
+         div_1.style.display = "block";
+         dia_a = 1.1;
+         dia_b = 1.3;
+         dia_c = 1.4;
+ 
+     }
+ 
+     // aqui temos a frequência dos finais de semanas, como citado, maior que a frequência dos dias úteis -->
+ 
+     function botao_finais_de_semana(){
+ 
+         div_0.style.display = "none";
+         div_1.style.display = "block";
+         dia_a = 1.8;
+         dia_b = 1.5;
+         dia_c = 1.3;
+         
+ 
+     }
+ 
+     function mostrar(){
+ 
+         div_1.style.display = "none";
+         div_2.style.display = "block";
+ 
+     }
+ 
+     function setSetores(){
+ 
+         span_setor_a.innerHTML = `${setor_a.value}`;
+         span_setor_b.innerHTML = `${setor_b.value}`;
+         span_setor_c.innerHTML = `${setor_c.value}`;
+ 
+     }
+ 
+     function setPessoasEstimadas(){
+ 
+         num_estimado_a = `${Number(qt_estimada_a.value)}`
+         num_estimado_b = `${Number(qt_estimada_b.value)}`
+         num_estimado_c = `${Number(qt_estimada_c.value)}`
+         total_pessoas_estimadas = `${Number(num_estimado_a) + Number(num_estimado_b) + Number(num_estimado_c)}`
+ 
+     }
+ 
+     function setPessoasSimuladas(){
+ 
+         num_simulado_a = num_estimado_a * dia_a;
+         num_simulado_b = num_estimado_b * dia_b;
+         num_simulado_c = num_estimado_c * dia_c;
+         total_pessoas_simuladas = `${num_simulado_a + num_simulado_b + num_simulado_c}`;
+ 
+     }
+ 
+     // aqui programamos p o tamanho das div mudarem de acordo com os valores inseridos -->
+ 
+     function setBarras(){
+ 
+         //
+         barra_estimada_a.style.width = `${(porcentagem_estimada_a).toFixed(1)}%`
+         barra_estimada_b.style.width = `${(porcentagem_estimada_b).toFixed(1)}%`
+         barra_estimada_c.style.width = `${(porcentagem_estimada_c).toFixed(1)}%`
+         //
+         barra_simulada_a.style.width = `${(porcentagem_simulada_a).toFixed(1)}%`
+         barra_simulada_b.style.width = `${(porcentagem_simulada_b).toFixed(1)}%`
+         barra_simulada_c.style.width = `${(porcentagem_simulada_c).toFixed(1)}%`
+         //
+         barra_lucro_a.style.width = `${(porcentagem_simulada_a).toFixed(1)}%`
+         barra_lucro_b.style.width = `${(porcentagem_simulada_b).toFixed(1)}%`
+         barra_lucro_c.style.width = `${(porcentagem_simulada_c).toFixed(1)}%`
+ 
+     }
+ 
+     
+ 
+     function fixTamanhoBarras(){
+ 
+         if(barra_estimada_a.style.width < `${20}%`) {barra_estimada_a.style.width = `${20}%`;}
+         if(barra_estimada_b.style.width < `${20}%`) {barra_estimada_b.style.width = `${20}%`;}
+         if(barra_estimada_c.style.width < `${20}%`) {barra_estimada_c.style.width = `${20}%`;}
+         //
+         if(barra_simulada_a.style.width < `${20}%`) {barra_simulada_a.style.width = `${20}%`;}
+         if(barra_simulada_b.style.width < `${20}%`) {barra_simulada_b.style.width = `${20}%`;}
+         if(barra_simulada_c.style.width < `${20}%`) {barra_simulada_c.style.width = `${20}%`;}
+         //
+         if(barra_lucro_a.style.width < `${20}%`) {barra_lucro_a.style.width = `${20}%`;}
+         if(barra_lucro_b.style.width < `${20}%`) {barra_lucro_b.style.width = `${20}%`;}
+         if(barra_lucro_c.style.width < `${20}%`) {barra_lucro_c.style.width = `${20}%`;}
+         
+ 
+     }
+ 
+     // aqui nós calculamos a porcentagem de pessoas estimadas em relação ao total, e também mostramos os valores simulados pelo sensor e o lucro -->
+ 
+     function setDados(){
+ 
+         //
+         dados_estimado_a.innerHTML = `${num_estimado_a} pessoas estimadas (${(porcentagem_estimada_a).toFixed(2)}% do total)`
+         dados_estimado_b.innerHTML = `${num_estimado_b} pessoas estimadas (${(porcentagem_estimada_b).toFixed(2)}% do total)`
+         dados_estimado_c.innerHTML = `${num_estimado_c} pessoas estimadas (${(porcentagem_estimada_c).toFixed(2)}% do total)`
+         //
+         dados_simulado_a.innerHTML = `${num_simulado_a.toFixed(0)} pessoas (aumento de ${(diferença_a).toFixed(0)} pessoas do estimado)`
+         dados_simulado_b.innerHTML = `${num_simulado_b.toFixed(0)} pessoas (aumento de ${(diferença_b).toFixed(0)} pessoas do estimado)`
+         dados_simulado_c.innerHTML = `${num_simulado_c.toFixed(0)} pessoas (aumento de ${(diferença_c).toFixed(0)} pessoas do estimado)`
+         //
+         lucro_medio_a = ((diferença_a.toFixed(0)) * gasto_medio_pessoa);
+         lucro_medio_b = ((diferença_b.toFixed(0)) * gasto_medio_pessoa);
+         lucro_medio_c = ((diferença_c.toFixed(0)) * gasto_medio_pessoa);
+         //
+         lucro_previsto_a.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_a).toFixed(2)}`;
+         lucro_previsto_b.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_b).toFixed(2)}`;
+         lucro_previsto_c.innerHTML = `Lucro médio de R$${(media_porcentagem_compra * lucro_medio_c).toFixed(2)}`;
+     }
+ 
+     function setPorcentagem(){
+ 
+         porcentagem_estimada_a = (num_estimado_a / total_pessoas_estimadas) * 100;
+         porcentagem_estimada_b = (num_estimado_b / total_pessoas_estimadas) * 100;
+         porcentagem_estimada_c = (num_estimado_c / total_pessoas_estimadas) * 100;
+         //
+         porcentagem_simulada_a = (num_simulado_a / total_pessoas_estimadas) * 100;
+         porcentagem_simulada_b = (num_simulado_b / total_pessoas_estimadas) * 100;
+         porcentagem_simulada_c = (num_simulado_c / total_pessoas_estimadas) * 100;
+         //
+         diferença_a = num_simulado_a - num_estimado_a;
+         diferença_b = num_simulado_b - num_estimado_b;
+         diferença_c = num_simulado_c - num_estimado_c;
+ 
+ 
+     }
+     function novamente(){
+ 
+         div_0.style.display = "block";
+         div_2.style.display = "none";
+     }
+ 
+     function ajuda(){
+ 
+         alert(`Segundo levantamento da Abrasce (Associação Brasileira de Shopping Centers), de todas as pessoas que vão ao shopping, 45% vão com a real intenção de compra sendo o gasto médio por cliente (independente de idade ou classe social) é de R$ 243,82.`)
+ 
+     }
+ 
+ </script>
+ 
+ <style>
+ 
+ body{
+ 
+     background-image: url("https://i.pinimg.com/564x/83/f3/4b/83f34bc53988fdc890c60af22cc911b5.jpg");
+     background-image: no-repeat;
+     background-size: cover;
+ 
+ }
+ 
+ #img_logo{
+ 
+     height: 300px;
+     width: 300px;
+ 
+ }
+ 
+ #div_0{
+ 
+     display: block;
+ 
+ }
+ 
+ #div_1{
+ 
+     display: none;
+ 
+ }
+ #div_2{
+ 
+     display: none;
+ 
+ }
+ #barra_estimada_a, #barra_estimada_b, #barra_estimada_c {
+ 
+     background-color: grey;
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ 
+ #barra_simulada_a, #barra_simulada_b, #barra_simulada_c {
+ 
+     background-color:#370E94;
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ #barra_lucro_a, #barra_lucro_b, #barra_lucro_c {
+ 
+     background-color: rgb(175, 127, 4);
+     display: block;
+     height: 75px;
+     width: 0%;
+     text-align: center;
+ 
+ }
+ 
+ 
+ #dados_estimado_a, #dados_estimado_b, #dados_estimado_c, #dados_simulado_a, #dados_simulado_b, #dados_simulado_c, #lucro_previsto_a, #lucro_previsto_b, #lucro_previsto_c{
+ 
+     color: white;
+     font-style: bold;
+     font-size: 17px;
+     text-align: center;
+ 
+ }
+ 
+ #novamente{
+ 
+ 
+     height: 10%;
+     width: 10%;
+ 
+ }
+ #interrogacao{
+ 
+     height: 30px;
+     width: 30px;
+ 
+ >>>>>>> 5acac2364b88d8d95ee48d26e9c5444882e1eb2b
+ }

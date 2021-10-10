@@ -1,7 +1,7 @@
 body{
-    height: 2100px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
+    padding: 0;
     background-color:#ffffff;
 
 }
@@ -12,7 +12,7 @@ header{
     text-align: center;
 }
 
-footer{
+#footer{
     height: 200px;
 }
 
@@ -52,6 +52,8 @@ header .cent nav{
 header .bt {
     text-align: right;
 }
+
+/* Edição do botão (Cadastre-se) */
 .btn_cads{
     color: white;
     background-color: #353535;
@@ -62,11 +64,33 @@ header .bt {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.btn_cads a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_cads i{
+    margin-right: 3px;
+}
+
 .btn_cads:hover,
 .btn_cads:focus{
  background: #d9d9d9;
+ color: black;
 }
-.homee{
+
+/* inicio da edição do corpo da página */
+#servico_um{
+    display: flex;
+    margin: 150px;
+    align-items: center;
+    padding: 0px 30px 0px 0px;
+    height: 150px;
+    margin-bottom: 10px;
+  
+}
+
+#servico_dois{
     display: flex;
     margin: 150px;
     align-items: center;
@@ -90,17 +114,67 @@ header .bt {
     border-radius: 20px;
     text-align: center;
     box-shadow: 1px 1px 3px black;
-    margin:-100px 0px 0px 0px  ;
+    margin:-50px 0px 0px 0px  ;
     padding: 10px 10px 10px 10px;
+    justify-content: space-between;
+    
     
 }
 
-.div_shop h2{
-    font-size: 30px;
+.div_shop div{
+    display: flex;
+    width: 300px;
     margin-bottom: 30px;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    
 }
 
- .sobre{
+.calcfi{
+    background-color: #353535;
+    width: 200px;
+    border-radius: 20px;
+    color: white;
+    align-self: center;
+    margin-top: 150px;
+    border: none;
+    height: 40px;
+    transition: 1s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.calcfi  a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_cads a{
+    text-decoration: none;
+    color: white;
+}
+
+.calcfi:hover,
+.calcfi:focus{
+ background: #d9d9d9;
+ color: black;
+}
+
+.div_shop div a{
+    font-size: 40px;
+    margin-left: 30px;
+    margin-top: 0px;
+ 
+}
+
+.div_shop h2{
+    font-size: 20px;
+    margin: 10px ;
+}
+
+ #sobre{
      background-color: #fff;
      height: 50vh;
      display: flex;
@@ -111,7 +185,6 @@ header .bt {
      font-size: 20px;
      align-items: center;
      text-align: center;
-     width: 100vw;
      margin-left: 150px;
     
 
@@ -131,6 +204,7 @@ header .bt {
 .img_sobre {
     width: 200px;
     height: 200px;
+    border-radius: 10px;
 }
 
 .missao {
@@ -139,14 +213,15 @@ header .bt {
 }
 
 .missao div h3{
-    border-bottom: 1px solid rgb(255, 255, 255);
-    margin: 0px 0px 20px 0px;
+    height: 70px ;
     align-items: center;
+
+    
 }
 
 .missao div{
     width: 300px;
-    height: 300px;
+    height: 250px;
     padding: 30px 0px 0px 0px;
     margin-left: 100px;
     color: #3c6e71;
@@ -159,14 +234,18 @@ header .bt {
     box-shadow: 1px 1px 3px black;
 }
 
- .nos {
+
+/* CSS do footer e foto doa integrantes  */
+.nos{
 
      background-color: #fff;
      height: 300px;
      display: flex;
      text-align: center;
  }
+
 .divnos{
+    margin-top: 50px;
     background-color: #fff;
     width: 20%;
     height: 200px;
@@ -177,7 +256,28 @@ header .bt {
 
 .divnos img{
     height: 150px;
+    border-radius: 10px;
 }
-footer{
+.inones{
+   margin-top: 30px;
+}
+.inones a{
+    margin: 0px 10px;   
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+
+}
+
+#footer p{
+    margin-top: 100px;
+}
+#footer{
     background-color: #284b63;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+    
 }
+

@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.main{
+    height: 655px;
+    display: flex;
+    background-color: brown;
+}
+
+.imagem{
+    height: 100%;
+    width: 50%;
+    background-image: url(/img/barra-shoping-4.jpg);
+    
+}

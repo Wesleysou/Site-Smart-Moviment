@@ -7,87 +7,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./css.css">
+    <script src="https://kit.fontawesome.com/451870fbf6.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 
 <body>
+    <!-- todos os elementos da Barra se encontram dentro desse (header) -->
     <header>
         <div class="cent">
+            <!-- Links -->
             <nav>
                 <a class="link" href="">HOME</a>
-                <a class="link" href="">Sobre nós</a>
-                <a class="link" href="">Servicos</a>
-                <a class="link" href="">Contato</a>
+                <a class="link" href="#sobre">Sobre nós</a>
+                <a class="link" href="#servico_um">Servicos</a>
+                <a class="link" href="#footer">Contato</a>
             </nav>
 
 
-            <button class="btn_cads">Login/Cadastre-se</button>
+            <button class="btn_cads"><a href="./financeira.html"> <i
+                        class="fas fa-sign-in-alt"></i>Cadastre-se</a></button>
 
         </div>
     </header>
-    <main>
-        <section class="homee">
+
+    <!-- Corpo da página -->
+
+    <div class="main">
+        <div id="servico_um">
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>Banco de dados</h2>
+                    <div>
+                        <i class="fas fa-database"></i>
+                        <h2>Banco de dados</h2>
+                    </div>
                     <p>Dados Armazenados de forma inteligente e de prática vizualização</p>
                 </div>
             </div>
 
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>Sensores</h2>
+                    <div>
+                        <i class="far fa-lightbulb"></i>
+                        <h2>Sensores</h2>
+                    </div>
                     <p>Sensores instalados estratégicamente para análise de dados </p>
                 </div>
             </div>
 
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>Suporte Técnico</h2>
+                    <div>
+                        <i class="fas fa-tools"></i>
+                        <h2>Suporte Técnico</h2>
+                    </div>
                     <p>Suporte, instalação e manutenção recorrentes</p>
                 </div>
             </div>
 
-        </section>
+        </div>
 
-        <section class="homee">
+        <div id="servico_dois">
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>Gráfico Dinâmico</h2>
+                    <div>
+                        <i class="fas fa-signal"></i>
+                        <h2>Gráfico Dinâmico</h2>
+                    </div>
+
                     <p>Informação em tempo real sobre o fluxo de pessoas em forma de gráfico</p>
                 </div>
             </div>
 
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>Alugueis Realistas</h2>
+                    <div>
+                        <i class="fas fa-piggy-bank"></i>
+                        <h2>Alugueis Realistas</h2>
+                    </div>
                     <p>Defina preços de alugueis com mais exatidão</p>
+
+                    <button class="calcfi"> <a href="./financeira.html">Calculadora Finaceira</a></button>
                 </div>
             </div>
 
             <div class="artshop">
                 <div class="div_shop">
-                    <h2>HOT ZONE</h2>
+                    <div>
+                        <i class="fas fa-fire-alt"></i>
+                        <h2>Hot zone</h2>
+                    </div>
                     <p>Descubra quis setores são mais atraentes para o publico</p>
                 </div>
             </div>
-        </section>
 
 
-        <section class="sec_sobre">
+        </div>
 
-            <div class="sobre">
+
+        <div class="sec_sobre">
+
+            <div id="sobre">
+
 
                 <div class="div_texto">
-
                     <h1>Quem somos nos?</h1>
                     <br>
                     <br>
-
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio aut ab recusandae architecto
-                        id
-                        rem nostrum, sapiente eos totam qui maxime corporis ducimus! Nostrum laboriosam, voluptas
-                        dignissimos exercitationem estsss quia.</p>
+                    <p>A SmartMovement é sua primeira opção
+                        quando se trata de operação e análise de
+                        fluxo de pessoas, tendo como foco principal
+                        objetivo proporcionar a validação e checagem
+                        da informação de fluxo de pessoas de forma
+                        segura, permitindo o uso desses dados para
+                        tomada de decisões estratégicas.</p>
                 </div>
                 <div class="div_img">
                     <img class="img_sobre" src="img/logo.jpg" alt="">
@@ -108,8 +140,10 @@
                 </div>
             </div>
 
-        </section>
-        <section class="nos">
+        </div>
+
+<!-- Foto dos integrantes do grpo com nome -->
+        <div class="nos">
 
             <div class="divnos">
                 <img src="img/art.jpg" alt="">
@@ -135,12 +169,21 @@
 
             </div>
 
-        </section>
-    </main>
+        </div>
+    </div>
 
+<!-- Footer -->
+    <div id="footer">
+        <p> &copy; 2021-Smart Movement. Todos os dieritos reservados </p>
 
-    <footer>
-             
+        <div class="inones">
+            <a href="#"><i class="fab fa-linkedin"></i></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href=""><i class="fab fa-linkedin"></i></a>
+
+        </div>
+
     </footer>
 </body>
 
