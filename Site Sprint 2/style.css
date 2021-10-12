@@ -1,0 +1,283 @@
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color:#ffffff;
+
+}
+
+header{
+    height: 350px;
+    background-color: #284b63;
+    text-align: center;
+}
+
+#footer{
+    height: 200px;
+}
+
+main{
+    height: 1400px;
+}
+/*CSS DO HEADER*/
+header  .cent{
+    display: flex;
+    padding-top: 30px;
+    
+}
+
+header .cent nav{
+
+    margin: 0px 500px 0px 200px;
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+
+
+}
+
+.link{
+    color: white;
+    text-decoration: none;
+    padding:0px 20px;
+    transition: color 1s;
+
+}
+
+.link:hover{
+    color: grey;
+    border-bottom: 1.5s 2px solid grey;
+}
+
+header .bt {
+    text-align: right;
+}
+
+/* Edição do botão (Cadastre-se) */
+.btn_cads{
+    color: white;
+    background-color: #353535;
+    border: none;
+    height: 40px;
+    border-radius: 20px;
+    transition: background 1s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn_cads a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_cads i{
+    margin-right: 3px;
+}
+
+.btn_cads:hover,
+.btn_cads:focus{
+ background: #d9d9d9;
+ color: black;
+}
+
+/* inicio da edição do corpo da página */
+#servico_um{
+    display: flex;
+    margin: 150px;
+    align-items: center;
+    padding: 0px 30px 0px 0px;
+    height: 150px;
+    margin-bottom: 10px;
+  
+}
+
+#servico_dois{
+    display: flex;
+    margin: 150px;
+    align-items: center;
+    padding: 0px 30px 0px 0px;
+    height: 150px;
+    margin-bottom: 10px;
+    
+}
+
+.div_conteudo{
+    width: 400px;
+    height: 400px;
+}
+
+.div_shop{
+    color: #023e8a;
+    background-color: #d9d9d9;
+    width: 300px;
+    height: 200px;
+    font-size: 20px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 1px 1px 3px black;
+    margin:-50px 0px 0px 0px  ;
+    padding: 10px 10px 10px 10px;
+    justify-content: space-between;
+    
+    
+}
+
+.div_shop div{
+    display: flex;
+    width: 300px;
+    margin-bottom: 30px;
+    font-size: 30px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    
+}
+
+.calcfi{
+    background-color: #353535;
+    width: 200px;
+    border-radius: 20px;
+    color: white;
+    align-self: center;
+    margin-top: 150px;
+    border: none;
+    height: 40px;
+    transition: 1s;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.calcfi  a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn_cads a{
+    text-decoration: none;
+    color: white;
+}
+
+.calcfi:hover,
+.calcfi:focus{
+ background: #d9d9d9;
+ color: black;
+}
+
+.div_shop div a{
+    font-size: 40px;
+    margin-left: 30px;
+    margin-top: 0px;
+ 
+}
+
+.div_shop h2{
+    font-size: 20px;
+    margin: 10px ;
+}
+
+ #sobre{
+     background-color: #fff;
+     height: 50vh;
+     display: flex;
+     padding: 10px 10px 10px 10px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     color: #3c6e71;
+     font-weight: bold;
+     font-size: 20px;
+     align-items: center;
+     text-align: center;
+     margin-left: 150px;
+    
+
+ }
+
+ .div_texto{
+  width: 600px;
+ }
+
+
+
+ .div_sobre{
+  margin: 0px 100px 0px 100px;
+  
+ }
+
+.img_sobre {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.missao {
+    display: flex;
+    margin-left: 100px;
+}
+
+.missao div h3{
+    height: 70px ;
+    align-items: center;
+
+    
+}
+
+.missao div{
+    width: 300px;
+    height: 250px;
+    padding: 30px 0px 0px 0px;
+    margin-left: 100px;
+    color: #3c6e71;
+    font-size: 20px;
+    margin-right: none;
+    text-align: center;
+    background-color: #d9d9d9;
+    margin-bottom: 100px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px black;
+}
+
+
+/* CSS do footer e foto doa integrantes  */
+.nos{
+
+     background-color: #fff;
+     height: 300px;
+     display: flex;
+     text-align: center;
+ }
+
+.divnos{
+    margin-top: 50px;
+    background-color: #fff;
+    width: 20%;
+    height: 200px;
+    color: #3c6e71;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+.divnos img{
+    height: 150px;
+    border-radius: 10px;
+}
+.inones{
+   margin-top: 30px;
+}
+.inones a{
+    margin: 0px 10px;   
+    color: #fff;
+    height: 50px;
+    width: 50px;
+    font-size: 30px;
+
+}
+
+#footer p{
+    margin-top: 100px;
+}
+#footer{
+    background-color: #284b63;
+        color: #ffffff;
+        text-align: center;
+        padding: 20px;
+    
+}
+
